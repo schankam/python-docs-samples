@@ -144,6 +144,11 @@ def cleanup(
     service_obj = get_service(project_id, region, service)
     revs = get_revision_tags(service_obj)
 
+    revs = [
+        element for index, element in enumerate(revs)
+        if (element["rev"].startswith("pr-"))
+    ]
+
     if not revs:
         click.echo("No revision tags found, nothing to clean up")
         sys.exit(0)
