@@ -146,7 +146,7 @@ def cleanup(
 
     revs = [
         element for index, element in enumerate(revs)
-        if (element["rev"].startswith("pr-"))
+        if (element["tag"].startswith("pr-"))
     ]
 
     if not revs:
